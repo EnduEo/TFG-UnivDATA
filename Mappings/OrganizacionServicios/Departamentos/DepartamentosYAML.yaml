@@ -1,0 +1,136 @@
+prefixes:
+ xsd: http://www.w3.org/2001/XMLSchema#
+ rr: http://www.w3.org/ns/r2rml#
+ rml: http://semweb.mmlab.be/ns/rml#
+ ql: http://semweb.mmlab.be/ns/ql#
+ transit: http://vocab.org/transit/terms/
+ owl: http://www.w3.org/2002/07/owl#
+ wgs84_pos: http://www.w3.org/2003/01/geo/wgs84_pos#
+ univ: http://www.semanticweb.org/universidata/resource/
+ orgdef: http://www.semanticweb.org/universidata/ontology/organizacion-servicios#
+ esadm: http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#
+  
+mappings:
+ TriplesMap1:
+    sources:
+      - [uam-departamentos.csv~csv]
+    s: $(URI_universidad)
+    po:
+      - [rdf:type, orgdef:Universidad]
+      - [orgdef:codigoSIIU, $(cod_universidad), xsd:string]
+      - [orgdef:nombre, $(des_universidad), xsd:string]
+      - [owl:sameAs, $(wikidata_universidad)~iri]
+ TriplesMapCurso:
+    sources:
+      - [uam-departamentos.csv~csv]
+    s: univ:curso-academico/$(curso_academico)
+    po:
+      - [rdf:type, orgdef:CursoAcademico]
+      - [orgdef:idCurso, $(curso_academico), xsd:string]
+      
+
+ TriplesMap2:
+    sources: 
+      - [uam-departamentos.csv~csv]
+    s: univ:departamento/$(cod_departamento)
+    po:
+      - [rdf:type, orgdef:Departamento] 
+      - [orgdef:codigoSIIU, $(cod_departamento), xsd:string]
+      - [orgdef:nombre, $(des_departamento), xsd:string]
+      - [owl:sameAs, $(wikidata_departamento)~iri]
+
+      - p: orgdef:campus
+        o:	
+        - mapping: TriplesMap3
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_campus)]
+             - [str2, $(cod_campus)]
+      - p: esadm:municipio
+        o:	
+        - mapping: TriplesMap4
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_municipio)]
+             - [str2, $(URI_municipio)]
+             
+      - p: orgdef:universidad
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_universidad)]
+             - [str2, $(cod_universidad)]
+ TriplesMap3:
+    sources:
+      - [uam-departamentos.csv~csv]
+    s: univ:campus/$(cod_campus)
+    po:
+      - [rdf:type, orgdef:Campus]
+      - [orgdef:codigoSIIU, $(cod_campus), xsd:string]
+      - [orgdef:nombre, $(des_campus), xsd:string]
+      -  p: orgdef:universidad
+         o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+             - [str1, $(cod_universidad)]
+             - [str2, $(cod_universidad)]
+ TriplesMap4:
+    sources:
+      - [uam-departamentos.csv~csv]
+    s: $(URI_municipio)
+    po:
+      - [rdf:type, esadm:Municipio]
+      - [orgdef:codigoINE, $(cod_municipio), xsd:string]
+      - [orgdef:nombre,$(des_municipio),xsd:string]
+      - [owl:sameAs, $(wikidata_municipio)~iri]
+      
+ TriplesMap5:
+    sources:
+      - [uam-departamentos.csv~csv]
+    s: univ:muestra-departamento/$(id_muestra_departamento)
+    po:
+      - [rdf:type, orgdef:MuestraDepartamento]
+      - [orgdef:codigoMuestra, $(id_muestra_departamento), xsd:string]
+      - [orgdef:situacion, $(des_situacion_departamento), xsd:string]
+      - [orgdef:fechaDesdeSituacion, $(fecha_desde_situacion_departamento), xsd:date]
+      - p: orgdef:universidad
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+      
+      - p: orgdef:campus
+        o: 
+        - mapping: TriplesMap3
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_campus)]
+             - [str2, $(cod_campus)]
+             
+      - p: orgdef:departamento
+        o:
+        - mapping: TriplesMap2
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_departamento)]
+             - [str2, $(cod_departamento)]
+             
+      - p: orgdef:cursoAcademico
+        o:
+        - mapping: TriplesMapCurso
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(curso_academico)]
+             - [str2, $(curso_academico)]

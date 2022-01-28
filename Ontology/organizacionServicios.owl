@@ -1,0 +1,664 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#"
+     xml:base="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"
+     xmlns:schema="http://schema.org/"
+     xmlns:orgdef="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:powder-s="http://www.w3.org/2007/05/powder-s#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:iron="http://purl.org/ontology/iron#"
+     xmlns:esadm="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:sco="http://purl.org/ontology/sco#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:organizacion-servicios="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios">
+        <owl:imports rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio_v0.5"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#codigoONU -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#codigoONU"/>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#codigoSIIU -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#codigoSIIU"/>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#alt -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#alt">
+        <rdfs:comment>The WGS84 altitude of a SpatialThing (decimal meters 
+above the local reference ellipsoid).</rdfs:comment>
+        <rdfs:label>altitude</rdfs:label>
+        <rdfs:domain rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#lat -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#lat">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#location -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#location">
+        <rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/based_near"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#long -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#long">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/based_near -->
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/based_near"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#gYear -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#gYear"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#estado -->
+
+    <owl:ObjectProperty rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#estado">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#centroSecundaria -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#centroSecundaria">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#CentroSecundaria"/>
+        <rdfs:comment xml:lang="es">Centro de secundaria al que está asociado una unidad universitaria u otros recursos universitarios</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">asociado al centro de secundaria</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#cursoAcademico -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#cursoAcademico">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#CursoAcademico"/>
+        <rdfs:comment rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:comment>Sucede durante el curso académico</rdfs:comment>
+        <rdfs:label>curso académico</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#unidadUniversitaria -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#unidadUniversitaria">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#UnidadUniversitaria"/>
+        <rdfs:comment xml:lang="es">Unidad universitaria a la que está asociada una universidad u otros recursos universitarios</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">asociado a la unidad universitaria</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#universidad -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#universidad">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Universidad"/>
+        <rdfs:comment xml:lang="es">Universidad a la que está asociado un recurso educativo, una institución o una persona</rdfs:comment>
+        <rdfs:comment xml:lang="es">asociado a la universidad</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#campus -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#campus">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#Campus"/>
+        <rdfs:comment xml:lang="es">Campus al que está asociado una unidad universitaria u otros recursos universitarios</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">asociado al campus</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#centro -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#centro">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Centro"/>
+        <rdfs:comment xml:lang="es">Campus al que está asociado una unidad universitaria u otros recursos universitarios</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">asociado al centro</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#departamento -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#departamento">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#Departamento"/>
+        <rdfs:comment xml:lang="es">Departamento al que está asociado una unidad universitaria u otros recursos universitarios</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">asociado al departamento</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#otraUnidad -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#otraUnidad">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#OtraUnidad"/>
+        <rdfs:comment xml:lang="es">Unidad a la que está asociada un recurso universitario (ni centro ni departamento)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">asociado a otra unidad</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#location -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#location"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/identifier -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/identifier"/>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#codigoMuestra -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#codigoMuestra">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Muestra"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#codigoONU -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#codigoONU">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#idCurso -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#idCurso">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#CursoAcademico"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">identificador del curso académico</rdfs:comment>
+        <rdfs:label xml:lang="es">id curso</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#naturalezaCentro -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#naturalezaCentro">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Centro"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Naturaleza del centro universitario (público, privado, privado de la iglesia, mixto)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">naturaleza centro</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#codigoSIIU -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#codigoSIIU">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#fechaDesdeSituacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#fechaDesdeSituacion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#MuestraUnidad"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment xml:lang="es">Fecha desde la cual la unidad universitaria se encuentra en la situación consignada</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">fecha situación</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#nombre -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#nombre">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Designación o que se le da a una persona, animal, cosa, o concepto tangible o intangible, concreto o abstracto, para distinguirlo de otros.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">nombre</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#situacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#situacion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Situación de la unidad o recurso universitario</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label>situacion</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#lat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#lat">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#long -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#long">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Pais -->
+
+    <owl:Class rdf:about="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#Pais"/>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Centro -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Centro">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#UnidadUniversitaria"/>
+        <rdfs:comment xml:lang="es">Centro universitario</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">Centro</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#CentroSecundaria -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#CentroSecundaria">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#InstitucionEducativa"/>
+        <rdfs:comment xml:lang="es">Centro de enseñanza secundaria como puede ser un instituto</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">Centro de enseñanza secundaria</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#CursoAcademico -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#CursoAcademico">
+        <rdfs:comment xml:lang="es">Intervalo de tiempo, generalmente durante el cual se desarrollan las actividades académicas</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">Curso academico</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#InstitucionEducativa -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#InstitucionEducativa"/>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Muestra -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Muestra"/>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#MuestraUnidad -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#MuestraUnidad">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Muestra"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#OtraUnidad -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#OtraUnidad">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#UnidadUniversitaria"/>
+        <rdfs:comment xml:lang="es">Unidad universitaria distinta a los centros y departamentos, como pueden ser hospitales universitarios o escuelas de doctorado</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">Otra Unidad</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Universidad -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Universidad">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#InstitucionEducativa"/>
+        <rdfs:comment xml:lang="es">Institución de enseñanza superior</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">Universidad</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#Campus -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#Campus">
+        <rdfs:comment xml:lang="es">Conjunto de terrenos y edificios en que se desarrollan las actividades de una universidad.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">Campus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#Departamento -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#Departamento">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#UnidadUniversitaria"/>
+        <rdfs:comment xml:lang="es">Unidad universitaria encargada de la docencia de asignaturas e investigación en una o varias áreas de conocimiento.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">Departamento</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#MuestraCentro -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#MuestraCentro">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#MuestraUnidad"/>
+        <rdfs:comment xml:lang="es">Representa el estado de un departamento en un intervalo de tiempo concreto, el curso académico.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">Muestra Centro</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#MuestraDepartamento -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#MuestraDepartamento">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#MuestraUnidad"/>
+        <rdfs:comment xml:lang="es">Representa el estado de un departamento en un intervalo de tiempo concreto, el curso académico.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">Muestra Departamento</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#UnidadUniversitaria -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#UnidadUniversitaria">
+        <rdfs:comment xml:lang="es">Unidades de docencia e investigación encargada de coordinar las enseñanzas</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">Unidad universitaria</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#codigoONU">
+        <rdfs:label xml:lang="es">código entidad territorial</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="https://unstats.un.org/unsd/methodology/m49/overview/"/>
+        <rdfs:comment xml:lang="es">Código de la entidad territorial de la ONU, sirve para representar paises, agregaciones de países, o continentes entre otros</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#codigoSIIU">
+        <rdfs:comment xml:lang="es">Código para representar elementos universitarios según el marco del proyecto SIIU (Sistema Integrado de Información Universitaria) propuesto por el ministerio</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:isDefinedBy rdf:resource="https://www.universidades.gob.es/portal/site/universidades/menuitem.78fe777017742d34e0acc310026041a0/?vgnextoid=719f372673680710VgnVCM1000001d04140aRCRD"/>
+        <rdfs:label xml:lang="es">código unidad universitaria</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#">
+        <dc:date>$Date: 2009/04/20 15:00:30 $</dc:date>
+        <rdfs:label>geo</rdfs:label>
+        <dc:description>A vocabulary for representing latitude, longitude and 
+ altitude information in the WGS84 geodetic reference datum. 
+ Version $Id: wgs84_pos.rdf,v 1.22 2009/04/20 15:00:30 timbl Exp $. See http://www.w3.org/2003/01/geo/ for more details.</dc:description>
+        <rdfs:comment>
+Recent changes to this namespace:
+$Log: wgs84_pos.rdf,v $
+Revision 1.22  2009/04/20 15:00:30  timbl
+Remove the time bits which have been deal with elsewhere eg in iCal.
+
+Revision 1.21  2009/04/20 12:52:47  timbl
+try again
+
+Revision 1.20  2009/04/20 12:42:11  timbl
+Add Event (edited ages ago and never checked in), and location (following discussion http://chatlogs.planetrdf.com/swig/2009-04-20#T12-36-09)
+
+Revision 1.19  2009/04/20 12:36:31  timbl
+Add Event (edited ages ago and never checked in), and location (following discussion http://chatlogs.planetrdf.com/swig/2009-04-20#T12-36-09)
+
+Revision 1.18  2006/02/01 22:01:04  danbri
+Clarified that lat and long are decimal degrees, and that alt is decimal metres about local reference ellipsoid
+
+Revision 1.17  2004/02/06 17:38:12  danbri
+Fixed a bad commit screwup
+
+Revision 1.15  2003/04/19 11:24:08  danbri
+Fixed the typo even more.
+
+Revision 1.14  2003/04/19 11:16:56  danbri
+fixed a typo
+
+Revision 1.13  2003/02/19 22:27:27  connolly
+relaxed domain constraints on lat/long/alt from Point to SpatialThing
+
+Revision 1.12  2003/01/12 01:41:41  danbri
+Trying local copy of XSLT doc.
+
+Revision 1.11  2003/01/12 01:20:18  danbri
+added a link to morten&apos;s xslt rdfs viewer.
+
+Revision 1.10  2003/01/11 18:56:49  danbri
+Removed datatype range from lat and long properties, since they would
+have required each occurance of the property to mention the datatype.
+
+Revision 1.9  2003/01/11 11:41:31  danbri
+Another typo; repaired rdfs:Property to rdf:Property x4
+
+Revision 1.8  2003/01/11 11:05:02  danbri
+Added an rdfs:range for each lat/long/alt property,
+http://www.w3.org/2001/XMLSchema#float
+
+Revision 1.7  2003/01/10 20:25:16  danbri
+Longer rdfs:comment for Point, trying to be Earth-centric and neutral about
+coordinate system(s) at the same time. Feedback welcomed.
+
+Revision 1.6  2003/01/10 20:18:30  danbri
+Added CVS log comments into the RDF/XML as an rdfs:comment property of the
+vocabulary. Note that this is not common practice (but seems both harmless
+and potentially useful).
+
+
+revision 1.5
+date: 2003/01/10 20:14:31;  author: danbri;  state: Exp;  lines: +16 -5
+Updated schema:
+Added a dc:date, added url for more info. Changed the rdfs:label of the
+namespace from gp to geo. Added a class Point, set as the rdfs:domain of
+each property. Added XML comment on the lat_long property suggesting that
+we might not need it (based on #rdfig commentary from implementors).
+
+revision 1.4
+date: 2003/01/10 20:01:07;  author: danbri;  state: Exp;  lines: +6 -5
+Fixed typo; several rdfs:about attributes are now rdf:about. Thanks to MortenF in
+#rdfig for catching this error.
+
+revision 1.3
+date: 2003/01/10 11:59:03;  author: danbri;  state: Exp;  lines: +4 -3
+fixed buglet in vocab, added more wgs links
+
+revision 1.2
+date: 2003/01/10 11:01:11;  author: danbri;  state: Exp;  lines: +4 -4
+Removed alt from the as-a-flat-string property, and switched from
+space separated to comma separated.
+
+revision 1.1
+date: 2003/01/10 10:53:23;  author: danbri;  state: Exp;
+basic geo vocab
+
+</rdfs:comment>
+        <dc:title>WGS84 Geo Positioning: an RDF vocabulary</dc:title>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#lat">
+        <rdfs:comment>The WGS84 latitude of a SpatialThing (decimal degrees).</rdfs:comment>
+        <rdfs:label>latitude</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#lat_long">
+        <rdfs:comment>A comma-separated representation of a latitude, longitude coordinate.</rdfs:comment>
+        <rdfs:label>lat/long</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#location">
+        <rdfs:label>location</rdfs:label>
+        <rdfs:comment>The relation between something and the point, 
+ or other geometrical thing in space, where it is.  For example, the realtionship between
+ a radio tower and a Point with a given lat and long.
+ Or a relationship between a park and its outline as a closed arc of points, or a road and
+ its location as a arc (a sequence of points).
+ Clearly in practice there will be limit to the accuracy of any such statement, but one would expect
+ an accuracy appropriate for the size of the object and uses such as mapping .
+ </rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#long">
+        <rdfs:label>longitude</rdfs:label>
+        <rdfs:comment>The WGS84 longitude of a SpatialThing (decimal degrees).</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

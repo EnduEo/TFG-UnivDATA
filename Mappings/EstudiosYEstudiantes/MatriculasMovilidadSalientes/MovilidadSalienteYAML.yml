@@ -1,0 +1,706 @@
+prefixes:
+ xsd: http://www.w3.org/2001/XMLSchema#
+ rr: http://www.w3.org/ns/r2rml#
+ rml: http://semweb.mmlab.be/ns/rml#
+ ql: http://semweb.mmlab.be/ns/ql#
+ transit: http://vocab.org/transit/terms/
+ owl: http://www.w3.org/2002/07/owl#
+ geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+ univ: http://www.semanticweb.org/universidata/resource/
+ estdef: http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#
+ rrhhdef: http://www.semanticweb.org/universidata/ontology/recursos-humanos#
+ orgdef: http://www.semanticweb.org/universidata/ontology/organizacion-servicios#
+ esadm: http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#
+ person: http://www.w3.org/ns/person#
+ 
+mappings:
+ TriplesMap1:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: $(URI_universidad_origen)
+    po:
+      - [rdf:type, orgdef:Universidad]
+      - [orgdef:codigoSIIU, $(cod_universidad_origen), xsd:string]
+      - [orgdef:nombre, $(des_universidad_origen), xsd:string]
+      - [owl:sameAs, $(wikidata_universidad_origen)~iri]
+  
+ TriplesMapCurso:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:curso-academico/$(curso_academico)
+    po:
+      - [rdf:type, orgdef:CursoAcademico]
+      - [orgdef:idCurso, $(curso_academico), xsd:string]
+      
+      
+ TriplesMapMatricula_b2:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:matricula-movilidad-saliente/$(id_matricula_b2)
+    po:
+      - [rdf:type, estdef:MatriculaMovSaliente]
+      - [estdef:codigoMatricula, $(id_matricula_b2), xsd:string]
+      - [estdef:tipoProgramaMovilidad,$(des_tipo_programa_mov), xsd:string]
+      - [estdef:programaMovilidad, $(des_programa_movilidad), xsd:string]
+
+      - p: estdef:titulacionOrigen
+        o:
+        - mapping: TriplesMap15
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_titulacion_origen)]
+             - [str2, $(cod_titulacion_origen)]
+      
+      - p: orgdef:cursoAcademico
+        o:
+        - mapping: TriplesMapCurso
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(curso_academico)]
+             - [str2, $(curso_academico)]
+             
+      - p: estdef:universidadOrigen
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad_origen)]
+             - [str2, $(URI_universidad_origen)] 
+      
+ TriplesMapEstudiante_b2:
+    sources: 
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:estudiante/$(id_matricula_b2)
+    po:
+      - [rdf:type, estdef:Estudiante]
+      - [rrhhdef:idPersona, $(id_matricula_b2), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - p: estdef:matriculaMovSaliente
+        o:
+        - mapping: TriplesMapMatricula_b2
+          condition:
+           function: equal
+           parameters:
+            - [str1, $(id_matricula_b2)]
+            - [str2, $(id_matricula_b2)]
+            
+
+              
+ TriplesMapMatricula_b3:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:matricula-movilidad-saliente/$(id_matricula_b3)
+    po:
+      - [rdf:type, estdef:MatriculaMovSaliente]
+      - [estdef:codigoMatricula, $(id_matricula_b3), xsd:string]
+      - p: estdef:titulacionOrigen
+        o:
+        - mapping: TriplesMap15
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_titulacion_origen)]
+             - [str2, $(cod_titulacion_origen)]
+      
+      - p: orgdef:cursoAcademico
+        o:
+        - mapping: TriplesMapCurso
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(curso_academico)]
+             - [str2, $(curso_academico)]
+             
+      - p: estdef:universidadOrigen
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad_origen)]
+             - [str2, $(URI_universidad_origen)]
+             
+ TriplesMapEstudiante_b3:
+    sources: 
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:estudiante/$(id_matricula_b3)
+    po:
+      - [rdf:type, estdef:Estudiante]
+      - [rrhhdef:idPersona, $(id_matricula_b3), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - p: estdef:matriculaMovSaliente
+        o:
+        - mapping: TriplesMapMatricula_b3
+          condition:
+           function: equal
+           parameters:
+            - [str1, $(id_matricula_b3)]
+            - [str2, $(id_matricula_b3)]
+            
+      - p: person:citizenship
+        o:
+        - mapping: TriplesMapPais_b3
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_pais_nacionalidad)]
+             - [str2, $(URI_pais_nacionalidad)]  
+      
+ TriplesMapMatricula_b4:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:matricula-movilidad-saliente/$(id_matricula_b4)
+    po:
+      - [rdf:type, estdef:MatriculaMovSaliente]
+      - [estdef:codigoMatricula, $(id_matricula_b4), xsd:string]
+      - p: estdef:titulacionOrigen
+        o:
+        - mapping: TriplesMap15
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_titulacion_origen)]
+             - [str2, $(cod_titulacion_origen)]
+      
+      - p: orgdef:cursoAcademico
+        o:
+        - mapping: TriplesMapCurso
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(curso_academico)]
+             - [str2, $(curso_academico)]
+             
+      - p: estdef:universidadOrigen
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad_origen)]
+             - [str2, $(URI_universidad_origen)]
+             
+ TriplesMapEstudiante_b4:
+    sources: 
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:estudiante/$(id_matricula_b4)
+    po:
+      - [rdf:type, estdef:Estudiante]
+      - [rrhhdef:idPersona, $(id_matricula_b4), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - [rrhhdef:anioNacimiento, $(anio_nacimiento), xsd:gYear]
+      - p: estdef:matriculaMovSaliente
+        o:
+        - mapping: TriplesMapMatricula_b4
+          condition:
+           function: equal
+           parameters:
+            - [str1, $(id_matricula_b4)]
+            - [str2, $(id_matricula_b4)]
+
+             
+ TriplesMapMatricula_b5:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:matricula-movilidad-saliente/$(id_matricula_b5)
+    po:
+      - [rdf:type, estdef:MatriculaMovSaliente]
+      - [estdef:codigoMatricula, $(id_matricula_b5), xsd:string]
+      - p: estdef:titulacionOrigen
+        o:
+        - mapping: TriplesMap15
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_titulacion_origen)]
+             - [str2, $(cod_titulacion_origen)]
+      
+      - p: orgdef:cursoAcademico
+        o:
+        - mapping: TriplesMapCurso
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(curso_academico)]
+             - [str2, $(curso_academico)]
+             
+      - p: estdef:universidadOrigen
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad_origen)]
+             - [str2, $(URI_universidad_origen)]
+             
+ TriplesMapEstudiante_b5:
+    sources: 
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:estudiante/$(id_matricula_b5)
+    po:
+      - [rdf:type, estdef:Estudiante]
+      - [rrhhdef:idPersona, $(id_matricula_b5), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - p: estdef:matriculaMovSaliente
+        o:
+        - mapping: TriplesMapMatricula_b5
+          condition:
+           function: equal
+           parameters:
+            - [str1, $(id_matricula_b5)]
+            - [str2, $(id_matricula_b5)]
+             
+ TriplesMapMatricula_b6:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:matricula-movilidad-saliente/$(id_matricula_b6)
+    po:
+      - [rdf:type, estdef:MatriculaMovSaliente]
+      - [estdef:codigoMatricula, $(id_matricula_b6), xsd:string]
+      - p: estdef:titulacionOrigen
+        o:
+        - mapping: TriplesMap15
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_titulacion_origen)]
+             - [str2, $(cod_titulacion_origen)]
+      
+      - p: orgdef:cursoAcademico
+        o:
+        - mapping: TriplesMapCurso
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(curso_academico)]
+             - [str2, $(curso_academico)]
+      
+      - p: estdef:universidadOrigen
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+            - [str1, $(URI_universidad_origen)]
+            - [str2, $(URI_universidad_origen)]
+            
+      - p: estdef:universidadDestino
+        o:
+        - mapping: TriplesMapUniversidadDest_b6
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad_destino)]
+             - [str2, $(URI_universidad_destino)]
+             
+ TriplesMapEstudiante_b6:
+    sources: 
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:estudiante/$(id_matricula_b6)
+    po:
+      - [rdf:type, estdef:Estudiante]
+      - [rrhhdef:idPersona, $(id_matricula_b6), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - p: estdef:matriculaMovSaliente
+        o:
+        - mapping: TriplesMapMatricula_b6
+          condition:
+           function: equal
+           parameters:
+            - [str1, $(id_matricula_b6)]
+            - [str2, $(id_matricula_b6)]
+            
+ TriplesMapMatricula_b7:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:matricula-movilidad-saliente/$(id_matricula_b7)
+    po:
+      - [rdf:type, estdef:MatriculaMovSaliente]
+      - [estdef:codigoMatricula, $(id_matricula_b7), xsd:string]
+      - [estdef:mesInicioMov, $(mes_inicio_programa), xsd:date]
+      - [estdef:mesFinMov, $(mes_fin_programa), xsd:date]
+
+      - p: estdef:titulacionOrigen
+        o:
+        - mapping: TriplesMap15
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_titulacion_origen)]
+             - [str2, $(cod_titulacion_origen)]
+      
+      - p: orgdef:cursoAcademico
+        o:
+        - mapping: TriplesMapCurso
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(curso_academico)]
+             - [str2, $(curso_academico)]
+             
+      - p: estdef:universidadOrigen
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad_origen)]
+             - [str2, $(URI_universidad_origen)] 
+             
+ TriplesMapEstudiante_b7:
+    sources: 
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:estudiante/$(id_matricula_b7)
+    po:
+      - [rdf:type, estdef:Estudiante]
+      - [rrhhdef:idPersona, $(id_matricula_b7), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - p: estdef:matriculaMovSaliente
+        o:
+        - mapping: TriplesMapMatricula_b7
+          condition:
+           function: equal
+           parameters:
+            - [str1, $(id_matricula_b7)]
+            - [str2, $(id_matricula_b7)]
+            
+ 
+ TriplesMapPais_b3:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: $(URI_pais_nacionalidad)
+    po:
+      - [rdf:type, esadm:Pais]
+      - [orgdef:codigoONU, $(cod_pais_nacionalidad), xsd:string]
+      - [orgdef:nombre,$(des_pais_nacionalidad),xsd:string]
+      - [geo:lat,$(lat_pais_nacionalidad),xsd:float]
+      - [geo:long,$(lon_pais_nacionalidad),xsd:float]
+      - [owl:sameAs, $(wikidata_pais_nacionalidad)~iri]
+   
+      - p: rrhhdef:agregacionPaises
+        o: 
+        - mapping: TriplesMapAgr_b3
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(cod_agregacion_paises_nacionalidad)]
+              - [str2, $(cod_agregacion_paises_nacionalidad)]
+              
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMapContinente_b3
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(cod_continente_nacionalidad)]
+              - [str2, $(cod_continente_nacionalidad)]
+
+ TriplesMapContinente_b3:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: $(URI_continente_nacionalidad)
+    po:
+      - [rdf:type, rrhhdef:Continente]
+      - [orgdef:codigoONU, $(cod_continente_nacionalidad), xsd:string]
+      - [orgdef:nombre,$(des_continente_nacionalidad),xsd:string]
+      - [owl:sameAs, $(wikidata_continente_nacionalidad)~iri]
+ 
+ TriplesMapAgr_b3:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: $(URI_agregacion_paises_nacionalidad)
+    po:
+      - [rdf:type, rrhhdef:AgregacionPaises]
+      - [orgdef:codigoONU, $(cod_agregacion_paises_nacionalidad), xsd:string]
+      - [orgdef:nombre,$(des_agregacion_paises_nacionalidad),xsd:string]
+      - [owl:sameAs, $(wikidata_agregacion_paises_nacionalidad)~iri]
+      
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMapContinente_b3
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(cod_continente_nacionalidad)]
+              - [str2, $(cod_continente_nacionalidad)]
+              
+ TriplesMapUniversidadDest_b6:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: $(URI_universidad_destino)
+    po:
+      - [rdf:type, orgdef:Universidad]
+      - [orgdef:codigoSIIU, $(cod_universidad_destino), xsd:string]
+      - [orgdef:nombre, $(des_universidad_destino), xsd:string]
+      - [owl:sameAs, $(wikidata_universidad_destino)~iri]
+    
+      - p: rrhhdef:pais
+        o: 
+        - mapping: TriplesMapPais_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_pais_univ_destino)]
+              - [str2, $(URI_pais_univ_destino)]
+              
+      - p: rrhhdef:agregacionPaises
+        o: 
+        - mapping: TriplesMapAgr_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_agregacion_paises_univ_destino)]
+              - [str2, $(URI_agregacion_paises_univ_destino)]
+              
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMapContinente_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_univ_destino)]
+              - [str2, $(URI_continente_univ_destino)] 
+
+      - p: esadm:provincia
+        o:	
+        - mapping: TriplesMapProv_b6
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_provincia_destino)]
+             - [str2, $(URI_provincia_destino)]
+             
+      - p: esadm:municipio
+        o:	
+        - mapping: TriplesMapMun_b6
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_municipio_destino)]
+             - [str2, $(URI_municipio_destino)]
+             
+      - p: esadm:autonomia
+        o: 
+        - mapping: TriplesMapCA_b6
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_comunidad_destino)]
+             - [str2, $(URI_comunidad_destino)]
+    
+ TriplesMapPais_b6:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: $(URI_pais_univ_destino)
+    po:
+      - [rdf:type, esadm:Pais]
+      - [orgdef:codigoONU, $(cod_pais_univ_destino), xsd:string]
+      - [orgdef:nombre,$(des_pais_univ_destino),xsd:string]
+      - [geo:lat,$(lat_pais_univ_destino),xsd:float]
+      - [geo:long,$(lon_pais_univ_destino),xsd:float]
+      - [owl:sameAs, $(wikidata_pais_univ_destino)~iri]
+   
+      - p: rrhhdef:agregacionPaises
+        o: 
+        - mapping: TriplesMapAgr_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_agregacion_paises_univ_destino)]
+              - [str2, $(URI_agregacion_paises_univ_destino)]
+              
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMapContinente_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_univ_destino)]
+              - [str2, $(URI_continente_univ_destino)]
+
+ TriplesMapContinente_b6:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: $(URI_continente_univ_destino)
+    po:
+      - [rdf:type, rrhhdef:Continente]
+      - [orgdef:codigoONU, $(cod_continente_univ_destino), xsd:string]
+      - [orgdef:nombre,$(des_continente_univ_destino),xsd:string]
+      - [owl:sameAs, $(wikidata_continente_univ_destino)~iri]
+ 
+ TriplesMapAgr_b6:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: $(URI_agregacion_paises_univ_destino)
+    po:
+      - [rdf:type, rrhhdef:AgregacionPaises]
+      - [orgdef:codigoONU, $(cod_agregacion_paises_univ_destino), xsd:string]
+      - [orgdef:nombre,$(des_agregacion_paises_univ_destino),xsd:string]
+      - [owl:sameAs, $(wikidata_agregacion_paises_univ_destino)~iri]
+      
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMapContinente_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_univ_destino)]
+              - [str2, $(URI_continente_univ_destino)]
+              
+ TriplesMapMun_b6:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: $(URI_municipio_destino)
+    po:
+      - [rdf:type, esadm:Municipio]
+      - [orgdef:codigoINE, $(cod_municipio_destino), xsd:string]
+      - [orgdef:nombre,$(des_municipio_destino),xsd:string]
+      - [geo:lat,$(lat_municipio_destino),xsd:float]
+      - [geo:long,$(lon_municipio_destino),xsd:float]
+      - [owl:sameAs, $(wikidata_municipio_destino)~iri]
+      - p: esadm:provincia
+        o: 
+        - mapping: TriplesMapProv_b6
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_provincia_destino)]
+             - [str2, $(URI_provincia_destino)]
+             
+      - p: esadm:autonomia
+        o: 
+        - mapping: TriplesMapCA_b6
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_comunidad_destino)]
+             - [str2, $(URI_comunidad_destino)]
+      - p: rrhhdef:pais
+        o: 
+        - mapping: TriplesMapPais_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_pais_univ_destino)]
+              - [str2, $(URI_pais_univ_destino)]
+              
+      - p: rrhhdef:agregacionPaises
+        o: 
+        - mapping: TriplesMapAgr_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_agregacion_paises_univ_destino)]
+              - [str2, $(URI_agregacion_paises_univ_destino)]
+              
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMapContinente_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_univ_destino)]
+              - [str2, $(URI_continente_univ_destino)] 
+             
+ TriplesMapProv_b6:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: $(URI_provincia_destino)
+    po:
+      - [rdf:type, esadm:Provincia]
+      - [orgdef:codigoINE, $(cod_provincia_destino), xsd:string]
+      - [orgdef:nombre,$(des_provincia_destino),xsd:string]
+      - [owl:sameAs, $(wikidata_provincia_destino)~iri]
+      - p: esadm:autonomia
+        o: 
+        - mapping: TriplesMapCA_b6
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_comunidad_destino)]
+             - [str2, $(URI_comunidad_destino)]
+             
+      - p: rrhhdef:pais
+        o: 
+        - mapping: TriplesMapPais_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_pais_univ_destino)]
+              - [str2, $(URI_pais_univ_destino)]
+              
+      - p: rrhhdef:agregacionPaises
+        o: 
+        - mapping: TriplesMapAgr_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_agregacion_paises_univ_destino)]
+              - [str2, $(URI_agregacion_paises_univ_destino)]
+              
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMapContinente_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_univ_destino)]
+              - [str2, $(URI_continente_univ_destino)] 
+             
+ TriplesMapCA_b6:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: $(URI_comunidad_destino)
+    po:
+      - [rdf:type, esadm:Autonomia]
+      - [orgdef:codigoINE, $(cod_comunidad_destino), xsd:string]
+      - [orgdef:nombre,$(des_comunidad_destino),xsd:string]
+      - [owl:sameAs, $(wikidata_comunidad_destino)~iri]
+      
+      - p: rrhhdef:pais
+        o: 
+        - mapping: TriplesMapPais_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_pais_univ_destino)]
+              - [str2, $(URI_pais_univ_destino)]
+              
+      - p: rrhhdef:agregacionPaises
+        o: 
+        - mapping: TriplesMapAgr_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_agregacion_paises_univ_destino)]
+              - [str2, $(URI_agregacion_paises_univ_destino)]
+              
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMapContinente_b6
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_univ_destino)]
+              - [str2, $(URI_continente_univ_destino)] 
+
+ TriplesMap15:
+    sources:
+      - [uam-movilidad-saliente.csv~csv]
+    s: univ:titulacion/$(cod_titulacion_origen)
+    po:
+      - [rdf:type, estdef:titulacionOrigen]
+      - [orgdef:codigoSIIU, $(cod_titulacion_origen), xsd:string]
+      - [estdef:nombre, $(des_titulacion_origen), xsd:string]
+      - [estdef:tipoEstudioOrigen, $(des_nivel_formativo_origen), xsd:string]
+      - p: orgdef:universidad
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+            - [str1, $(URI_universidad_destino)]
+            - [str2, $(URI_universidad_destino)]

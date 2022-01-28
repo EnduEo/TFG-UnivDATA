@@ -1,0 +1,963 @@
+prefixes:
+ xsd: http://www.w3.org/2001/XMLSchema#
+ rr: http://www.w3.org/ns/r2rml#
+ rml: http://semweb.mmlab.be/ns/rml#
+ ql: http://semweb.mmlab.be/ns/ql#
+ transit: http://vocab.org/transit/terms/
+ owl: http://www.w3.org/2002/07/owl#
+ geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+ univ: http://www.semanticweb.org/universidata/resource/
+ estdef: http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#
+ rrhhdef: http://www.semanticweb.org/universidata/ontology/recursos-humanos#
+ orgdef: http://www.semanticweb.org/universidata/ontology/organizacion-servicios#
+ esadm: http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#
+ person: http://www.w3.org/ns/person#
+  
+mappings:
+ TriplesMap1:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: $(URI_universidad)
+    po:
+      - [rdf:type, orgdef:Universidad]
+      - [orgdef:codigoSIIU, $(cod_universidad), xsd:string]
+      - [orgdef:nombre, $(des_universidad), xsd:string]
+      - [owl:sameAs, $(wikidata_universidad)~iri]
+             
+ TriplesMapEmpleado_b2:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:personal-administracion-servicios/$(id_empleado_b2)
+    po:
+      - [rdf:type, rrhhdef:PersonalAdministracionServicios]
+      - [rrhhdef:idPersona, $(id_empleado_b2), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+             
+      - p: person:citizenship
+        o:
+        - mapping: TriplesMap17
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_pais_nacionalidad)]
+             - [str2, $(cod_pais_nacionalidad)]
+ 
+ TriplesMapEmpleado_b3:
+    sources: 
+      - [uam-PAS.csv~csv]
+    s: univ:personal-administracion-servicios/$(id_empleado_b3)
+    po:
+      - [rdf:type, rrhhdef:PersonalAdministracionServicios]
+      - [rrhhdef:idPersona, $(id_empleado_b3), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+      - p: person:residency
+        o:	
+        - mapping: TriplesMap14
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_municipio_residencia)]
+             - [str2, $(cod_municipio_residencia)]
+             
+      - p: person:residency
+        o:	
+        - mapping: TriplesMap15
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_provincia_residencia)]
+             - [str2, $(cod_provincia_residencia)]
+             
+      - p: person:residency
+        o: 
+        - mapping: TriplesMap16
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_comunidad_residencia)]
+             - [str2, $(cod_comunidad_residencia)]
+             
+ TriplesMapEmpleado_b4:
+    sources: 
+      - [uam-PAS.csv~csv]
+    s: univ:personal-administracion-servicios/$(id_empleado_b4)
+    po:
+      - [rdf:type, rrhhdef:PersonalAdministracionServicios]
+      - [rrhhdef:idPersona, $(id_empleado_b4), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - [rrhhdef:anioNacimiento, $(anio_nacimiento),xsd:gYear]
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+
+ TriplesMapEmpleado_b5:
+    sources: 
+      - [uam-PAS.csv~csv]
+    s: univ:personal-administracion-servicios/$(id_empleado_b5)
+    po:
+      - [rdf:type, rrhhdef:PersonalAdministracionServicios]
+      - [rrhhdef:idPersona, $(id_empleado_b5), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+             
+ TriplesMapEmpleado_b6:
+    sources: 
+      - [uam-PAS.csv~csv]
+    s: univ:personal-administracion-servicios/$(id_empleado_b6)
+    po:
+      - [rdf:type, rrhhdef:PersonalAdministracionServicios]
+      - [rrhhdef:idPersona, $(id_empleado_b6), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap13
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_otra_unidad)]
+             - [str2, $(cod_otra_unidad)]
+             
+ TriplesMapEmpleado_b7:
+    sources: 
+      - [uam-PAS.csv~csv]
+    s: univ:personal-administracion-servicios/$(id_empleado_b7)
+    po:
+      - [rdf:type, rrhhdef:PersonalAdministracionServicios]
+      - [rrhhdef:idPersona, $(id_empleado_b7), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+             
+ TriplesMapEmpleado_b8:
+    sources: 
+      - [uam-PAS.csv~csv]
+    s: univ:personal-administracion-servicios/$(id_empleado_b8)
+    po:
+      - [rdf:type, rrhhdef:PersonalAdministracionServicios]
+      - [rrhhdef:idPersona, $(id_empleado_b8), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+ TriplesMapEmpleado_b9:
+    sources: 
+      - [uam-PAS.csv~csv]
+    s: univ:personal-administracion-servicios/$(id_empleado_b9)
+    po:
+      - [rdf:type, rrhhdef:PersonalAdministracionServicios]
+      - [rrhhdef:idPersona, $(id_empleado_b9), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - [rrhhdef:situacionAdministrativa, $(des_situacion_administrativa), xsd:string]      
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+             
+ TriplesMapEmpleado_b10:
+    sources: 
+      - [uam-PAS.csv~csv]
+    s: univ:personal-administracion-servicios/$(id_empleado_b10)
+    po:
+      - [rdf:type, rrhhdef:PersonalAdministracionServicios]
+      - [rrhhdef:idPersona, $(id_empleado_b10), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - [rrhhdef:indCargoRemunerado, $(ind_cargo_remunerado), xsd:boolean]      
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+ 
+ TriplesMapEmpleado_b11:
+    sources: 
+      - [uam-PAS.csv~csv]
+    s: univ:personal-administracion-servicios/$(id_empleado_b11)
+    po:
+      - [rdf:type, rrhhdef:PersonalAdministracionServicios]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - [rrhhdef:indImparteDocencia, $(ind_imparte_docencia), xsd:boolean]      
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+             
+ TriplesMapEmpleado_b12:
+    sources: 
+      - [uam-PAS.csv~csv]
+    s: univ:personal-administracion-servicios/$(id_empleado_b12)
+    po:
+      - [rdf:type, rrhhdef:PersonalAdministracionServicios]
+      - [rrhhdef:idPersona, $(id_empleado_b12), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+             
+ TriplesMap13:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:unidadUniversitaria/$(cod_otra_unidad)
+    po:
+      - [rdf:type, rrhhdef:UnidadUniversitaria]
+      - [orgdef:codigoSIIU, $(cod_otra_unidad), xsd:string]
+      - [orgdef:nombre,$(des_otra_unidad),xsd:string]  
+
+      - p: orgdef:universidad
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+             
+ TriplesMap14:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: $(URI_municipio_residencia)
+    po:
+      - [rdf:type, esadm:Municipio]
+      - [orgdef:codigoINE, $(cod_municipio_residencia), xsd:string]
+      - [orgdef:nombre,$(des_municipio_residencia),xsd:string]
+      - [geo:lat,$(lat_municipio_residencia),xsd:float]
+      - [geo:long,$(lon_municipio_residencia),xsd:float]
+      - [owl:sameAs, $(wikidata_municipio_residencia)~iri]
+      - p: esadm:provincia
+        o: 
+        - mapping: TriplesMap15
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_provincia_residencia)]
+             - [str2, $(URI_provincia_residencia)]
+      - p: esadm:autonomia
+        o: 
+        - mapping: TriplesMap16
+          condition:
+           function: equal
+           parameters:
+              - [str1, $(URI_comunidad_residencia)]
+              - [str2, $(URI_comunidad_residencia)]
+             
+ TriplesMap15:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: $(URI_provincia_residencia)
+    po:
+      - [rdf:type, esadm:Provincia]
+      - [orgdef:codigoINE, $(cod_provincia_residencia), xsd:string]
+      - [orgdef:nombre,$(des_provincia_residencia),xsd:string]
+      - [owl:sameAs, $(wikidata_provincia_residencia)~iri]
+      - p: esadm:autonomia
+        o: 
+        - mapping: TriplesMap16
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_comunidad_residencia)]
+             - [str2, $(URI_comunidad_residencia)]
+             
+ TriplesMap16:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: $(URI_comunidad_residencia)
+    po:
+      - [rdf:type, esadm:Autonomia]
+      - [orgdef:codigoINE, $(cod_comunidad_residencia), xsd:string]
+      - [orgdef:nombre,$(des_comunidad_residencia),xsd:string]
+      - [owl:sameAs, $(wikidata_comunidad_residencia)~iri]
+ 
+ TriplesMap17:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: $(URI_pais_nacionalidad)
+    po:
+      - [rdf:type, esadm:Pais]
+      - [orgdef:codigoONU, $(cod_pais_nacionalidad), xsd:string]
+      - [orgdef:nombre,$(des_pais_nacionalidad),xsd:string]
+      - [geo:lat,$(lat_pais_nacionalidad),xsd:float]
+      - [geo:long,$(lon_pais_nacionalidad),xsd:float]
+      - [owl:sameAs, $(wikidata_pais_nacionalidad)~iri]
+
+      - p: rrhhdef:agregacionPaises
+        o: 
+        - mapping: TriplesMap19
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_agregacion_paises_nacionalidad)]
+              - [str2, $(URI_agregacion_paises_nacionalidad)]
+              
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMap18
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_nacionalidad)]
+              - [str2, $(URI_continente_nacionalidad)]
+
+ TriplesMap18:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: $(URI_continente_nacionalidad)
+    po:
+      - [rdf:type, rrhhdef:Continente]
+      - [orgdef:codigoONU, $(cod_continente_nacionalidad), xsd:string]
+      - [orgdef:nombre,$(des_continente_nacionalidad),xsd:string]
+      - [owl:sameAs, $(wikidata_continente_nacionalidad)~iri]
+  
+ TriplesMap19:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: $(URI_agregacion_paises_nacionalidad)
+    po:
+      - [rdf:type, rrhhdef:AgregacionPaises]
+      - [orgdef:codigoONU, $(cod_agregacion_paises_nacionalidad), xsd:string]
+      - [orgdef:nombre,$(des_agregacion_paises_nacionalidad),xsd:string]
+      - [owl:sameAs, $(wikidata_agregacion_paises_nacionalidad)~iri]            
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMap18
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_nacionalidad)]
+              - [str2, $(URI_continente_nacionalidad)]
+ TriplesMap22:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:muestra-pas/$(id_empleado_b2)
+    po:
+       - [rdf:type, rrhhdef:MuestraPAS]
+       - [orgdef:codigoMuestra, $(id_empleado_b2), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalAdministracionServicios
+         o:
+         - mapping: TriplesMapEmpleado_b2
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b2)]
+              - [str2, $(id_empleado_b2)]
+              
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b2
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b2)]
+               - [str1, $(id_empleado_b2)]
+               
+ TriplesMapContrato_b2:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:contrato/$(id_empleado_b2)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b2), xsd:string]
+      - [rrhhdef:tipoPAS, $(des_tipo_personal), xsd:string]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+
+      - p: rrhhdef:personalAdministracionServicios
+        o:
+         - mapping: TriplesMapEmpleado_b2
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b2)]
+              - [str2, $(id_empleado_b2)]
+               
+ TriplesMap23:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:muestra-pas/$(id_empleado_b3)
+    po:
+       - [rdf:type, rrhhdef:MuestraPAS]
+       - [orgdef:codigoMuestra, $(id_empleado_b3), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalAdministracionServicios
+         o:
+         - mapping: TriplesMapEmpleado_b3
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b3)]
+              - [str2, $(id_empleado_b3)]
+              
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b3
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b3)]
+               - [str1, $(id_empleado_b3)]
+               
+ TriplesMapContrato_b3:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:contrato/$(id_empleado_b3)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b3), xsd:string]
+      - [rrhhdef:tipoPAS, $(des_tipo_personal), xsd:string]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+
+      - p: rrhhdef:personalAdministracionServicios
+        o:
+         - mapping: TriplesMapEmpleado_b3
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b3)]
+              - [str2, $(id_empleado_b3)]
+              
+ TriplesMap24:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:muestra-pas/$(id_empleado_b4)
+    po:
+       - [rdf:type, rrhhdef:MuestraPAS]
+       - [orgdef:codigoMuestra, $(id_empleado_b4), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalAdministracionServicios
+         o:
+         - mapping: TriplesMapEmpleado_b4
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b4)]
+              - [str2, $(id_empleado_b4)]
+    
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b4
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b4)]
+               - [str1, $(id_empleado_b4)]
+               
+ TriplesMapContrato_b4:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:contrato/$(id_empleado_b4)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b4), xsd:string]
+      - [rrhhdef:tipoPAS, $(des_tipo_personal), xsd:string]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+
+      - p: rrhhdef:personalAdministracionServicios
+        o:
+         - mapping: TriplesMapEmpleado_b4
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b4)]
+              - [str2, $(id_empleado_b4)]
+              
+ TriplesMap25:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:muestra-pas/$(id_empleado_b5)
+    po:
+       - [rdf:type, rrhhdef:MuestraPAS]
+       - [orgdef:codigoMuestra, $(id_empleado_b5), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalAdministracionServicios
+         o:
+         - mapping: TriplesMapEmpleado_b5
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b5)]
+              - [str2, $(id_empleado_b5)]
+              
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b5
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b5)]
+               - [str1, $(id_empleado_b5)]
+         
+ TriplesMapContrato_b5:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:contrato/$(id_empleado_b5)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b5), xsd:string]
+      - [rrhhdef:anioIncorporacion, $(anio_incorporacion), xsd:gYear]
+      - p: orgdef:universidad
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+             
+      - p: rrhhdef:personalAdministracionServicios
+        o:
+        - mapping: TriplesMapEmpleado_b5
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(id_empleado_b5)]
+             - [str2, $(id_empleado_b5)]
+
+ TriplesMap26:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:muestra-pas/$(id_empleado_b6)
+    po:
+       - [rdf:type, rrhhdef:MuestraPAS]
+       - [orgdef:codigoMuestra, $(id_empleado_b6), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalAdministracionServicios
+         o:
+         - mapping: TriplesMapEmpleado_b6
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b6)]
+              - [str2, $(id_empleado_b6)]
+              
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b6
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b6)]
+               - [str1, $(id_empleado_b6)]
+              
+ TriplesMapContrato_b6:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:contrato/$(id_empleado_b6)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b6), xsd:string]
+      - [rrhhdef:tipoPAS, $(des_tipo_personal), xsd:string]
+      - [rrhhdef:indOtraUnidad, $(ind_otra_unidad), xsd:boolean]
+
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+             
+      - p: rrhhdef:personalAdministracionServicios
+        o:
+         - mapping: TriplesMapEmpleado_b6
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b6)]
+               - [str2, $(id_empleado_b6)]
+ TriplesMap27:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:muestra-pas/$(id_empleado_b7)
+    po:
+       - [rdf:type, rrhhdef:MuestraPAS]
+       - [orgdef:codigoMuestra, $(id_empleado_b7), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalAdministracionServicios
+         o:
+         - mapping: TriplesMapEmpleado_b7
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b7)]
+              - [str2, $(id_empleado_b7)]
+              
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b7
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b7)]
+               - [str1, $(id_empleado_b7)]
+              
+ TriplesMapContrato_b7:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:contrato/$(id_empleado_b7)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b7), xsd:string]
+      - [rrhhdef:tipoPAS, $(des_tipo_personal), xsd:string]
+      - [rrhhdef:servicioPrestado, $(des_servicio_prestado), xsd:string]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+             
+      - p: rrhhdef:personalAdministracionServicios
+        o:
+         - mapping: TriplesMapEmpleado_b7
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b7)]
+              - [str2, $(id_empleado_b7)]
+ TriplesMap28:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:muestra-pas/$(id_empleado_b8)
+    po:
+       - [rdf:type, rrhhdef:MuestraPAS]
+       - [orgdef:codigoMuestra, $(id_empleado_b8), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalAdministracionServicios
+         o:
+         - mapping: TriplesMapEmpleado_b8
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b8)]
+              - [str2, $(id_empleado_b8)]
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b8
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b8)]
+               - [str1, $(id_empleado_b8)]
+    
+ TriplesMapContrato_b8:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:contrato/$(id_empleado_b8)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b8), xsd:string]
+      - [rrhhdef:tipoPAS, $(des_tipo_personal), xsd:string]
+      - [rrhhdef:cuerpoEscalaPAS, $(des_cuerpo_escala_PAS), xsd:string]
+      - [rrhhdef:tipoContrato, $(des_tipo_contrato), xsd:string]
+      - [rrhhdef:titulacionExigida, $(des_titulacion_exigida), xsd:string]
+      - [rrhhdef:dedicacion, $(des_dedicacion), xsd:string]
+      - [rrhhdef:horasSemanalesTiempoParcial, $(num_horas_semanales_tiempo_parcial), xsd:float]
+
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+             
+      - p: rrhhdef:personalAdministracionServicios
+        o:
+         - mapping: TriplesMapEmpleado_b8
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b8)]
+              - [str2, $(id_empleado_b8)]
+              
+ TriplesMap29:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:muestra-pas/$(id_empleado_b9)
+    po:
+       - [rdf:type, rrhhdef:MuestraPAS]
+       - [orgdef:codigoMuestra, $(id_empleado_b9), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalAdministracionServicios
+         o:
+         - mapping: TriplesMapEmpleado_b9
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b9)]
+              - [str2, $(id_empleado_b9)]
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b9
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b9)]
+               - [str1, $(id_empleado_b9)]
+              
+ TriplesMapContrato_b9:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:contrato/$(id_empleado_b9)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b9), xsd:string]
+      - [rrhhdef:tipoPAS, $(des_tipo_personal), xsd:string]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+
+      - p: rrhhdef:personalAdministracionServicios
+        o:
+         - mapping: TriplesMapEmpleado_b9
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b9)]
+              - [str2, $(id_empleado_b9)]
+ TriplesMap30:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:muestra-pas/$(id_empleado_b10)
+    po:
+       - [rdf:type, rrhhdef:MuestraPAS]
+       - [orgdef:codigoMuestra, $(id_empleado_b10), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalAdministracionServicios
+         o:
+         - mapping: TriplesMapEmpleado_b10
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b10)]
+              - [str2, $(id_empleado_b10)]
+              
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b10
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b10)]
+               - [str1, $(id_empleado_b10)]
+              
+ TriplesMapContrato_b10:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:contrato/$(id_empleado_b10)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b10), xsd:string]
+      - [rrhhdef:tipoPAS, $(des_tipo_personal), xsd:string]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+
+      - p: rrhhdef:personalAdministracionServicios
+        o:
+         - mapping: TriplesMapEmpleado_b10
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b10)]
+              - [str2, $(id_empleado_b10)]
+ TriplesMap31:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:muestra-pas/$(id_empleado_b11)
+    po:
+       - [rdf:type, rrhhdef:MuestraPAS]
+       - [orgdef:codigoMuestra, $(id_empleado_b11), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalAdministracionServicios
+         o:
+         - mapping: TriplesMapEmpleado_b11
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b11)]
+              - [str2, $(id_empleado_b11)]
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b11
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b11)]
+               - [str1, $(id_empleado_b11)]
+              
+ TriplesMapContrato_b11:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:contrato/$(id_empleado_b11)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b11), xsd:string]
+      - [rrhhdef:tipoPAS, $(des_tipo_personal), xsd:string]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+
+      - p: rrhhdef:personalAdministracionServicios
+        o:
+         - mapping: TriplesMapEmpleado_b11
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b11)]
+              - [str2, $(id_empleado_b11)]
+ TriplesMap32:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:muestra-pas/$(id_empleado_b12)
+    po:
+       - [rdf:type, rrhhdef:MuestraPAS]
+       - [orgdef:codigoMuestra, $(id_empleado_b12), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalAdministracionServicios
+         o:
+         - mapping: TriplesMapEmpleado_b12
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b12)]
+              - [str2, $(id_empleado_b12)]
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b12
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b12)]
+              - [str1, $(id_empleado_b12)]
+              
+ TriplesMapContrato_b12:
+    sources:
+      - [uam-PAS.csv~csv]
+    s: univ:contrato/$(id_empleado_b12)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b12), xsd:string]
+      - [rrhhdef:tipoPAS, $(des_tipo_personal), xsd:string]
+      - [rrhhdef:numTrienios, ($num_trienios), xsd:integer]
+
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)] 
+             
+      - p: rrhhdef:personalAdministracionServicios
+        o:
+         - mapping: TriplesMapEmpleado_b12
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b12)]
+              - [str2, $(id_empleado_b12)]

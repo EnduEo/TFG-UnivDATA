@@ -1,0 +1,129 @@
+prefixes:
+ xsd: http://www.w3.org/2001/XMLSchema#
+ rr: http://www.w3.org/ns/r2rml#
+ rml: http://semweb.mmlab.be/ns/rml#
+ ql: http://semweb.mmlab.be/ns/ql#
+ transit: http://vocab.org/transit/terms/
+ owl: http://www.w3.org/2002/07/owl#
+ geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+ univ: http://www.semanticweb.org/universidata/resource/
+ estdef: http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#
+ rrhhdef: http://www.semanticweb.org/universidata/ontology/recursos-humanos#
+ orgdef: http://www.semanticweb.org/universidata/ontology/organizacion-servicios#
+ esadm: http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#
+ person: http://www.w3.org/ns/person#
+ 
+mappings:
+ TriplesMap1:
+    sources:
+      - [uam-titulaciones.csv~csv]
+    s: $(URI_universidad)
+    po:
+      - [rdf:type, orgdef:Universidad]
+      - [orgdef:codigoSIIU, $(cod_universidad), xsd:string]
+      - [orgdef:nombre, $(des_universidad), xsd:string]
+      - [owl:sameAs, $(wikidata_universidad)~iri]
+      
+ TriplesMapCurso:
+    sources:
+      - [uam-titulaciones.csv~csv]
+    s: univ:curso-academico/$(curso_academico)
+    po:
+      - [rdf:type, orgdef:CursoAcademico]
+      - [orgdef:idCurso, $(curso_academico), xsd:string]
+      
+ TriplesMap2:
+    sources:
+      - [uam-titulaciones.csv~csv]
+    s: univ:titulacion/$(cod_titulacion)
+    po:
+      - [rdf:type, estdef:Titulacion]
+      - [orgdef:codigoSIIU, $(cod_titulacion), xsd:string]
+      - [estdef:nombre, $(des_titulacion), xsd:string]
+      - [estdef:tipoEstudio, $(des_tipo_estudio), xsd:string]
+      - [estdef:rama, $(des_rama), xsd:string]
+      - [estdef:interuniversitario, $(des_interuniversitario), xsd:string]
+      - [estdef:univRolCoordinacion, $(ind_rol_coordinacion), xsd:boolean]
+      - [estdef:anioInicio, $(anio_inicio), xsd:gYear]
+      - [estdef:gradoPresencialidad, $(des_grado_presencialidad), xsd:string]
+      - [estdef:impIdiomaExtranjero, $(des_idioma_extranjero), xsd:string]
+      - [estdef:codImpIdiomaExtranjero, $(cod_idioma_extranjero), xsd:string]
+      - [estdef:precioCredito1, $(precio_credito_1), xsd:float]
+      - [estdef:precioCredito2, $(precio_credito_2), xsd:float]
+      - [estdef:precioCredito3, $(precio_credito_3), xsd:float]
+      - [estdef:precioCredito4, $(precio_credito_4), xsd:float]
+      - [estdef:precioCredito5, $(precio_credito_5), xsd:float]
+      - [estdef:precioTutela, $(precio_tutela), xsd:float]
+      - [estdef:creditosNecesarios, $(num_creditos_necesarios), xsd:float]
+      - p: estdef:unidadUniversitaria
+        o:
+        - mapping: TriplesMap3
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_unidad_responsable)]
+             - [str2, $(cod_unidad_responsable)]
+             
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+              
+ TriplesMap3:
+    sources:
+      - [uam-titulaciones.csv~csv]
+    s: univ:unidad-universitaria/$(cod_unidad_responsable)
+    po:
+      - [rdf:type, estdef:UnidadUniversitaria]
+      - [orgdef:codigoSIIU, $(cod_unidad_responsable), xsd:string]
+      - [orgdef:nombre,$(des_unidad_responsable),xsd:string]  
+      - [orgdef:tipoUnidad, $(des_tipo_unidad_responsable),xsd:string]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+ TriplesMap4:
+    sources:
+      - [uam-titulaciones.csv~csv]
+    s: univ:muestra-titulacion/$(id_muestra_titulacion)
+    po:
+      - [rdf:type, estdef:MuestraTitulacion]
+      - [orgdef:codigoMuestra, $(id_muestra_titulacion), xsd:string]
+      - [orgdef:cursoAcademico,$(curso_academico),xsd:string]
+      - [estdef:creditosOfertados, $(num_creditos_ofertados), xsd:float]
+      - [estdef:indImpartidoCurso, $(ind_impartido), xsd:boolean]
+      - [estdef:situacionTitulo, $(des_situacion_actual), xsd:string]
+      - p: estdef:titulacion
+        o:
+         - mapping: TriplesMap2
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(cod_titulacion)]
+              - [str2, $(cod_titulacion)]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+              
+      - p: orgdef:cursoAcademico
+        o:
+        - mapping: TriplesMapCurso
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(curso_academico)]
+             - [str2, $(curso_academico)]
+      

@@ -1,0 +1,869 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#"
+     xml:base="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"
+     xmlns:schema="http://schema.org/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:ns="http://creativecommons.org/ns#"
+     xmlns:powder-s="http://www.w3.org/2007/05/powder-s#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:organizacion-servicios1="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:organizacion-servicios="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes">
+        <owl:imports rdf:resource="http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio_v0.5"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/universidata/ontology/recursos-humanos"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matricula -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matricula">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Matricula"/>
+        <rdfs:comment xml:lang="es">Relativo a la matricula</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">matrícula</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matriculaAcceso -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matriculaAcceso">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matricula"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaAcceso"/>
+        <rdfs:comment xml:lang="es">Relativo a la matricula de acceso</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">matrícula acceso</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matriculaMovEntrante -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matriculaMovEntrante">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matriculaMovilidad"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovEntrante"/>
+        <rdfs:comment xml:lang="es">Relativo a la matricula de movilidad entrante</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">matrícula movilidad entrante</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matriculaMovSaliente -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matriculaMovSaliente">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matriculaMovilidad"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovSaliente"/>
+        <rdfs:comment xml:lang="es">Relativo a la matricula de movilidad saliente</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">matrícula movilidad saliente</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matriculaMovilidad -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matriculaMovilidad">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#matricula"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovilidad"/>
+        <rdfs:comment xml:lang="es">Relativo a la matricula de movilidad</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">matrícula movilidad</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#titulacion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#titulacion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:comment xml:lang="es">Titulación a la que está asociada una entidad universitaria o una persona</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">asociado a la titulación</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#titulacionOrigen -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#titulacionOrigen">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:comment xml:lang="es">Titulación origen en un programa de movilidad a la que está asociada una entidad universitaria o una persona</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">asociado a la titulación origen</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#universidadDestino -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#universidadDestino">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Universidad"/>
+        <rdfs:comment xml:lang="es">Universidad destino en un programa de movilidad</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">universidad destino</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#universidadOrigen -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#universidadOrigen">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Universidad"/>
+        <rdfs:comment xml:lang="es">Universidad origen en un programa de movilidad</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">universidad origen</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#ambitoDestino -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#ambitoDestino">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Ámbito de estudio en la universidad de destino</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">ámbito destino</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#ambitoOrigen -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#ambitoOrigen">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Ámbito de estudio en la universidad origen</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">ámbito origen</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#anioAccesoSUE -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#anioAccesoSUE">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Estudiante"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+        <rdfs:comment xml:lang="es">Año en el que accedió por primera vez al SUE</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">anio acceso SUE</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#anioFinEstudioAcceso -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#anioFinEstudioAcceso">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Matricula"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+        <rdfs:comment xml:lang="es">Año en el que terminó los estudios que le dieron acceso a la titulación</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">año fin estudio acceso</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#anioInicio -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#anioInicio">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#gYear"/>
+        <rdfs:comment xml:lang="es">Año desde el cual se imparte la titulación</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">año inicio</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#codImpIdiomaExtranjero -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#codImpIdiomaExtranjero">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Código de si la titulación se oferta en idioma extranjero</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">cod impartido idioma extranjero</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#codigoMatricula -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#codigoMatricula">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Matricula"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Identificador de muestras</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">codigo matrícula</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#creditosNecesarios -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#creditosNecesarios">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="es">Número de créditos necesarios para obtener el título</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">créditos necesarios</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#creditosOfertados -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#creditosOfertados">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MuestraTitulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="es">Número de créditos ofertados para esa titulación en el curso de referencia</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">créditos ofertados</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#dedicacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#dedicacion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:comment xml:lang="es">Régimen de dedicación del estudiante (tiempo parcial o tiempo completo)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">dedicacion</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#especialidadAcceso -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#especialidadAcceso">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaAcceso"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Descripción del tipo de especialidad del estudio de acceso a este Grado universitario</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">especialidad acceso</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#formaAdmision -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#formaAdmision">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaAcceso"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Descripción  de la forma en la que la o el estudiante ha sido admitido en el Grado</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">forma admisión</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#gradoPresencialidad -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#gradoPresencialidad">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Descripción del grado de presencialidad del estudio</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">grado presencialidad</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#impIdiomaExtranjero -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#impIdiomaExtranjero">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Descripción de si la titulación se oferta en idioma extranjero</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">des impartido idioma extranjero</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#indAccesoSUEPrimeraVez -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#indAccesoSUEPrimeraVez">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaAcceso"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="es">Indicador booleano para saber si ha entrado al  SUE (sistema universitario español) por primera vez</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">indicador acceso SUE primera vez</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#indCursoAdaptacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#indCursoAdaptacion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaAcceso"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="es">Indicador booleano para determinar si el la estudiante se matriculó en un curso de adaptación para el grado</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">indicador impartido curso adaptación</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#indImpartidoCurso -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#indImpartidoCurso">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MuestraTitulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="es">Indicador booleano para determinar si el la titulación se imparte en el curso de referencia</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">indicador impartido curso</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#indMatriculaPrimero -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#indMatriculaPrimero">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Matricula"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment xml:lang="es">Indicador booleano para determinar si se matricula en primero de carrera</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">ind matrícula primero</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#interuniversitario -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#interuniversitario">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Indica si el título es interuniversitario</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">titulo interuniversitario</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#mesFinMov -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#mesFinMov">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovilidad"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment xml:lang="es">Mes en el que acaba el programa de movilidad</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">mes fin programa mov</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#mesInicioMov -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#mesInicioMov">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovilidad"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment xml:lang="es">Mes en el que empieza el programa de movilidad</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">mes ini programa mov</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#naturalezaCentroSec -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#naturalezaCentroSec">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#CentroSecundaria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Naturaleza centro secundaria</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">naturaleza centro secundaria</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#nivelEstudiosMadre -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#nivelEstudiosMadre">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/person#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Nivel de estudios de la madre del alumno</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">nivel estudios madre</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#nivelEstudiosPadre -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#nivelEstudiosPadre">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/person#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Nivel de estudios del padre del alumno</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">nivel estudios padre</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#notaAdmision -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#notaAdmision">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaAcceso"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="es">Nota de acceso a la universidad correspondiente</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">nota admisón</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#ocupacionEstudiante -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#ocupacionEstudiante">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Estudiante"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#ocupacionMadre -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#ocupacionMadre">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/person#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#ocupaciónPadre -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#ocupaciónPadre">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/person#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="es">Precio (en euros) por crédito</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">precio por crédito</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito1 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito1">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="es">Precio (en euros) por crédito en 1ª matrícula</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">precio por crédito1</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito2 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito2">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="es">Precio (en euros) por crédito en 2ª matrícula</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">precio por crédito2</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito3 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito3">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="es">Precio (en euros) por crédito en 3ª matrícula</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">precio por crédito3</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito4 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito4">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="es">Precio (en euros) por crédito en 4ª matrícula</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">precio por crédito4</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito5 -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito5">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioCredito"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="es">Precio (en euros) por crédito en 5ª matrícula</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">precio por crédito5</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioTutela -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#precioTutela">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment xml:lang="es">En el caso de doctorados, precio del curso</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">precio tutela</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#programaMovilidad -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#programaMovilidad">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovilidad"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Nombre del programa de movilidad</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">programa movilidad</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#rama -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#rama">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Nombre de la rama de enseñanza</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">rama</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#situacionTitulo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#situacionTitulo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MuestraTitulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Situación actual de la titulación en el curso de referencia</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">situación título</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#tipoEstudio -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#tipoEstudio">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Nombre del tipo de estudio (Grado, Máster o Doctorado)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">Tipo estudio</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#tipoEstudioDestino -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#tipoEstudioDestino">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Nombre del tipo de estudio en la universidad destino (Grado, Máster o Doctorado)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">Tipo estudio destino</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#tipoEstudioOrigen -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#tipoEstudioOrigen">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Nombre del tipo de estudio origen</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">Tipo estudio origen</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#tipoFamiliaNumerosa -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#tipoFamiliaNumerosa">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Estudiante"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Código del tipo de familia numerosa a la que pertenece el o la estudiante</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">tipo familia numerosa</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#tipoProgramaMovilidad -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#tipoProgramaMovilidad">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovilidad"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Tipo del programa de movilidad</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">tipo programa mov</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#univRolCoordinacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#univRolCoordinacion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="es">Descripción del rol de coordinación de la universidad</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">rol coordinación universidad</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#codigoONU -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#codigoONU">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/organizacion-servicios#dedicacion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#dedicacion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/recursos-humanos#indInvestigadorPrincipal -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/universidata/ontology/recursos-humanos#indInvestigadorPrincipal">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/recursos-humanos#PersonalDocenteInvestigador"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/recursos-humanos#situacionAdministrativa -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/universidata/ontology/recursos-humanos#situacionAdministrativa">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/universidata/ontology/recursos-humanos#PersonalUniversitario"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#codigoSIIU -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/universidata/ontology/universidades/organizacion-servicios#codigoSIIU">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/identifier"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Estudiante -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Estudiante">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/person#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Matricula -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Matricula">
+        <rdfs:comment xml:lang="es">Matrícula universitaria</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">Matrícula</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaAcceso -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaAcceso">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Matricula"/>
+        <rdfs:comment xml:lang="es">Matrícula de alumnos que entrar por en el primer año de la títulación correspondiente</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">Matrícula acceso</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovEntrante -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovEntrante">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovilidad"/>
+        <rdfs:comment xml:lang="es">Matrícula de alumnos sujetos a un programa de movilidad, cuya universidad de procedencia es distinta de la universidad de referencia, siendo ésta la de destino</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">Matrícula mov entrante</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovSaliente -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovSaliente">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovilidad"/>
+        <rdfs:comment xml:lang="es">Matrícula de alumnos sujetos a un programa de movilidad, cuya universidad destino es distinta de la universidad de referencia</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">Matrícula mov saliente</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovilidad -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MatriculaMovilidad">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Matricula"/>
+        <rdfs:comment xml:lang="es">Matrícula sujeta a algún tipo de programa de movilidad</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">Matrícula movilidad</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MuestraTitulacion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#MuestraTitulacion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#Muestra"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes#Titulacion">
+        <rdfs:comment xml:lang="es">Estudio universitario</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/estudios-estudiantes"/>
+        <rdfs:label xml:lang="es">Titulación</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/universidata/ontology/organizacion-servicios#InstitucionEducativa">
+        <rdfs:isDefinedBy rdf:resource="http://www.semanticweb.org/universidata/ontology/organizacion-servicios"/>
+        <rdfs:label xml:lang="es">Institución educativa</rdfs:label>
+        <rdfs:comment xml:lang="es">Institución educativa</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

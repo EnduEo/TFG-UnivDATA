@@ -1,0 +1,354 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/ns/person#"
+     xml:base="http://www.w3.org/ns/person"
+     xmlns:schema="http://schema.org/"
+     xmlns:cc="http://creativecommons.org/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:voaf="http://purl.org/vocommons/voaf#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:wdrs="http://www.w3.org/2007/05/powder-s#"
+     xmlns:dcterms="http://purl.org/dc/terms/"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/">
+    <owl:Ontology rdf:about="http://www.w3.org/ns/person">
+        <dcterms:title xml:lang="en">ISA Programme Person Core Vocabulary</dcterms:title>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-11-17</dcterms:modified>
+        <vann:preferredNamespaceUri>http://www.w3.org/ns/person#</vann:preferredNamespaceUri>
+        <dcterms:rights>Copyright &amp;#169; 2012 European Commission</dcterms:rights>
+        <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-05-07</dcterms:issued>
+        <dcterms:abstract xml:lang="en">The Person Core Vocabulary provides a minimum set of classes and properties for describing a natural person, i.e. the individual as opposed to any role they may play in society or the relationships they have to other people, organisations and property; all of which contribute significantly to the broader concept of identity.</dcterms:abstract>
+        <dcterms:license rdf:resource="https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11"/>
+        <vann:preferredNamespacePrefix>person</vann:preferredNamespacePrefix>
+        <dcterms:comment>This vocabulary was not developed by a W3C group and its publication does not imply endorsement 
+      by the W3C Membership. Terms MAY be deprecated or their definitions clarified but they will 
+      not be deleted (see the W3C Persistence Policy). The vocabulary MAY be further developed by a future group.</dcterms:comment>
+        <wdrs:describedby rdf:resource="https://joinup.ec.europa.eu/asset/core_person/asset_release/core-person-vocabulary-100"/>
+        <dcterms:creator>
+            <rdf:Description>
+                <schema:affiliation rdf:resource="http://www.w3.org/data#W3C"/>
+                <rdfs:seeAlso rdf:resource="http://philarcher.org/foaf.rdf#me"/>
+                <foaf:name>Phil Archer</foaf:name>
+                <foaf:homepage rdf:resource="http://www.w3.org/People/all#phila"/>
+            </rdf:Description>
+        </dcterms:creator>
+        <dcterms:creator>
+            <rdf:Description>
+                <schema:affiliation>
+                    <rdf:Description>
+                        <foaf:homepage rdf:resource="http://ies.jrc.ec.europa.eu/DE"/>
+                        <foaf:name>European Commission, Joint Research Centre </foaf:name>
+                    </rdf:Description>
+                </schema:affiliation>
+                <foaf:name>Andrea Perego</foaf:name>
+                <foaf:homepage rdf:resource="http://andrea-perego.name/"/>
+                <rdfs:seeAlso rdf:resource="http://andrea-perego.name/foaf/#me"/>
+            </rdf:Description>
+        </dcterms:creator>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-12-21</dcterms:modified>
+        <foaf:maker>
+            <rdf:Description>
+                <foaf:page rdf:resource="http://joinup.ec.europa.eu/asset/core_person/home"/>
+                <foaf:name>Core Vocabularies Working Group (Person Task Force)</foaf:name>
+            </rdf:Description>
+        </foaf:maker>
+        <dcterms:description>The Person Core Vocabulary provides a minimum set of classes and properties for describing a natural person, i.e. the individual as opposed to any role they may play in society or the relationships they have to other people, organisations and property; all of which contribute significantly to the broader concept of identity.</dcterms:description>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://creativecommons.org/ns#attributionName -->
+
+    <owl:AnnotationProperty rdf:about="http://creativecommons.org/ns#attributionName"/>
+    
+
+
+    <!-- http://creativecommons.org/ns#attributionURL -->
+
+    <owl:AnnotationProperty rdf:about="http://creativecommons.org/ns#attributionURL"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://schema.org/affiliation -->
+
+    <owl:AnnotationProperty rdf:about="http://schema.org/affiliation"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/homepage -->
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/homepage"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/name -->
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/name"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/page -->
+
+    <owl:AnnotationProperty rdf:about="http://xmlns.com/foaf/0.1/page"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/person#citizenship -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/person#citizenship"/>
+    
+
+
+    <!-- http://www.w3.org/ns/person#residency -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/person#residency"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/identifier -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/identifier"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/vocommons/voaf#Vocabulary -->
+
+    <owl:Class rdf:about="http://purl.org/vocommons/voaf#Vocabulary"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/ns/person -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/person">
+        <rdf:type rdf:resource="http://purl.org/vocommons/voaf#Vocabulary"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/person#Person -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/person#Person">
+        <dcterms:identifier>person:Person</dcterms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/person#birthName -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/person#birthName">
+        <dcterms:identifier>person:birthName</dcterms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/person#citizenship -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/person#citizenship">
+        <dcterms:identifier>person:citizenship</dcterms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/person#countryOfBirth -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/person#countryOfBirth">
+        <dcterms:identifier>person:countryOfBirth</dcterms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/person#countryOfDeath -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/person#countryOfDeath">
+        <dcterms:identifier>person:countryOfDeath</dcterms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/person#patronymicName -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/person#patronymicName">
+        <dcterms:identifier>person:patronymicName</dcterms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/person#placeOfBirth -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/person#placeOfBirth">
+        <dcterms:identifier>person:placeOfBirth</dcterms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/person#placeOfDeath -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/person#placeOfDeath">
+        <dcterms:identifier>person:placeOfDeath</dcterms:identifier>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.w3.org/ns/person#residency -->
+
+    <owl:NamedIndividual rdf:about="http://www.w3.org/ns/person#residency">
+        <dcterms:identifier>person:residency</dcterms:identifier>
+    </owl:NamedIndividual>
+    <rdf:Description>
+        <schema:affiliation rdf:resource="http://www.w3.org/data#W3C"/>
+        <rdfs:seeAlso rdf:resource="http://philarcher.org/foaf.rdf#me"/>
+        <foaf:homepage rdf:resource="http://www.w3.org/People/all#phila"/>
+        <foaf:name>Phil Archer</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <schema:affiliation rdf:resource="http://www.w3.org/data#W3C"/>
+        <rdfs:seeAlso rdf:resource="http://philarcher.org/foaf.rdf#me"/>
+        <foaf:homepage rdf:resource="http://www.w3.org/People/all#phila"/>
+        <foaf:name>Phil Archer</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <foaf:name>Core Vocabularies Working Group (Person Task Force)</foaf:name>
+        <foaf:page rdf:resource="http://joinup.ec.europa.eu/asset/core_person/home"/>
+    </rdf:Description>
+    <rdf:Description>
+        <schema:affiliation>
+            <rdf:Description>
+                <foaf:homepage rdf:resource="http://ies.jrc.ec.europa.eu/DE"/>
+                <foaf:name>European Commission, Joint Research Centre </foaf:name>
+            </rdf:Description>
+        </schema:affiliation>
+        <rdfs:seeAlso rdf:resource="http://andrea-perego.name/foaf/#me"/>
+        <foaf:homepage rdf:resource="http://andrea-perego.name/"/>
+        <foaf:name>Andrea Perego</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <foaf:name>Core Vocabularies Working Group (Person Task Force)</foaf:name>
+        <foaf:page rdf:resource="http://joinup.ec.europa.eu/asset/core_person/home"/>
+    </rdf:Description>
+    <rdf:Description>
+        <schema:affiliation>
+            <rdf:Description>
+                <foaf:homepage rdf:resource="http://ies.jrc.ec.europa.eu/DE"/>
+                <foaf:name>European Commission, Joint Research Centre </foaf:name>
+            </rdf:Description>
+        </schema:affiliation>
+        <rdfs:seeAlso rdf:resource="http://andrea-perego.name/foaf/#me"/>
+        <foaf:homepage rdf:resource="http://andrea-perego.name/"/>
+        <foaf:name>Andrea Perego</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <schema:affiliation>
+            <rdf:Description>
+                <foaf:homepage rdf:resource="http://ies.jrc.ec.europa.eu/DE"/>
+                <foaf:name>European Commission, Joint Research Centre </foaf:name>
+            </rdf:Description>
+        </schema:affiliation>
+        <rdfs:seeAlso rdf:resource="http://andrea-perego.name/foaf/#me"/>
+        <foaf:homepage rdf:resource="http://andrea-perego.name/"/>
+        <foaf:name>Andrea Perego</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <schema:affiliation rdf:resource="http://www.w3.org/data#W3C"/>
+        <rdfs:seeAlso rdf:resource="http://philarcher.org/foaf.rdf#me"/>
+        <foaf:homepage rdf:resource="http://www.w3.org/People/all#phila"/>
+        <foaf:name>Phil Archer</foaf:name>
+    </rdf:Description>
+    <rdf:Description>
+        <foaf:name>Core Vocabularies Working Group (Person Task Force)</foaf:name>
+        <foaf:page rdf:resource="http://joinup.ec.europa.eu/asset/core_person/home"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.w3.org/ns/person#citizenship">
+        <rdfs:comment xml:lang="en">The citizenship relationship links a Person to a Jurisdiction that has conferred citizenship rights on the individual such as the right to vote, to receive certain protection from the community or the issuance of a passport. Multiple citizenships are recorded as multiple instances of the citizenship relationship.</rdfs:comment>
+        <rdfs:label xml:lang="en">citizenship</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/person"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/ns/person#residency">
+        <rdfs:label xml:lang="en">residency</rdfs:label>
+        <rdfs:comment xml:lang="en">Residency typically provides an individual with a subset of the rights of a citizen.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/person"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="https://joinup.ec.europa.eu/category/licence/isa-open-metadata-licence-v11">
+        <dcterms:title>ISA Open Metadata Licence v1.1</dcterms:title>
+        <cc:attributionName>European Commission</cc:attributionName>
+        <cc:attributionURL rdf:resource="http://ec.europa.eu/"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

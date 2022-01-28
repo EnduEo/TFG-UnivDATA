@@ -1,0 +1,651 @@
+prefixes:
+ xsd: http://www.w3.org/2001/XMLSchema#
+ rr: http://www.w3.org/ns/r2rml#
+ rml: http://semweb.mmlab.be/ns/rml#
+ ql: http://semweb.mmlab.be/ns/ql#
+ transit: http://vocab.org/transit/terms/
+ owl: http://www.w3.org/2002/07/owl#
+ geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+ univ: http://www.semanticweb.org/universidata/resource/
+ rrhhdef: http://www.semanticweb.org/universidata/ontology/recursos-humanos#
+ orgdef: http://www.semanticweb.org/universidata/ontology/organizacion-servicios#
+ esadm: http://vocab.linkeddata.es/datosabiertos/def/sector-publico/territorio#
+ person: http://www.w3.org/ns/person#
+  
+mappings:
+ TriplesMap1:
+    sources:
+      - [uam-PI.csv~csv]
+    s: $(URI_universidad)
+    po:
+      - [rdf:type, orgdef:Universidad]
+      - [orgdef:codigoSIIU, $(cod_universidad), xsd:string]
+      - [orgdef:nombre, $(des_universidad), xsd:string]
+      - [owl:sameAs, $(wikidata_universidad)~iri]
+      
+ 
+ TriplesMapEmpleado_b2:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:personal-investigador/$(id_empleado_b2)
+    po:
+      - [rdf:type, rrhhdef:PersonalInvestigador]
+      - [rrhhdef:idPersona, $(id_empleado_b2), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+      - p: rrhhdef:adscrito
+        o:
+        - mapping: TriplesMap8
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_unidad_responsable)]
+             - [str2, $(cod_unidad_responsable)]
+      - p: person:citizenship
+        o:
+        - mapping: TriplesMap17
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_pais_nacionalidad)]
+             - [str2, $(cod_pais_nacionalidad)]
+             
+ TriplesMapContrato_b2:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:contrato/$(id_empleado_b2)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b2), xsd:string]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+
+      - p: rrhhdef:personalInvestigador
+        o:
+         - mapping: TriplesMapEmpleado_b2
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b2)]
+              - [str2, $(id_empleado_b2)]
+              
+ TriplesMapEmpleado_b3:
+    sources: 
+      - [uam-PI.csv~csv]
+    s: univ:personal-investigador/$(id_empleado_b3)
+    po:
+      - [rdf:type, rrhhdef:PersonalInvestigador]
+      - [rrhhdef:idPersona, $(id_empleado_b3), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - [rrhhdef:anioNacimiento, $(anio_nacimiento),xsd:gYear]
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+      - p: rrhhdef:adscrito
+        o:
+        - mapping: TriplesMap8
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_unidad_responsable)]
+             - [str2, $(cod_unidad_responsable)]
+             
+ TriplesMapContrato_b3:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:contrato/$(id_empleado_b3)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b3), xsd:string]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+
+      - p: rrhhdef:personalInvestigador
+        o:
+         - mapping: TriplesMapEmpleado_b3
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b3)]
+              - [str2, $(id_empleado_b3)]
+             
+ TriplesMapEmpleado_b4:
+    sources: 
+      - [uam-PI.csv~csv]
+    s: univ:personal-investigador/$(id_empleado_b4)
+    po:
+      - [rdf:type, rrhhdef:PersonalInvestigador]
+      - [rrhhdef:idPersona, $(id_empleado_b4), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+      - p: rrhhdef:adscrito
+        o:
+        - mapping: TriplesMap8
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_unidad_responsable)]
+             - [str2, $(cod_unidad_responsable)]
+             
+ TriplesMapContrato_b4:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:contrato/$(id_empleado_b4)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b4), xsd:string]
+      - [rrhhdef:tipoPI, $(des_tipo_personal_investigacion), xsd:string]
+      - [rrhhdef:modalidadPI, $(des_modalidad_personal_investigacion), xsd:string]
+      - [rrhhdef:tipoOrganismoContrato, $(des_tipo_organismo), xsd:string]
+      - [rrhhdef:dedicacion, $(des_dedicacion), xsd:string]
+      - [rrhhdef:duracionContrato, $(duracion_meses), xsd:integer]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+
+      - p: rrhhdef:personalInvestigador
+        o:
+         - mapping: TriplesMapEmpleado_b4
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b4)]
+              - [str2, $(id_empleado_b4)]
+
+ TriplesMapEmpleado_b5:
+    sources: 
+      - [uam-PI.csv~csv]
+    s: univ:personal-investigador/$(id_empleado_b5)
+    po:
+      - [rdf:type, rrhhdef:PersonalInvestigador]
+      - [rrhhdef:idPersona, $(id_empleado_b5), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - [rrhhdef:tituloDoctoradoCuantia, $(des_cuantia_titulo_doctorado), xsd:string]
+      - [rrhhdef:anioLecturaTesis, $(anio_lectura_tesis), xsd:gYear]
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+             
+      - p: rrhhdef:adscrito
+        o:
+        - mapping: TriplesMap8
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_unidad_responsable)]
+             - [str2, $(cod_unidad_responsable)]
+             
+      - p: rrhhdef:universidadDoctorado
+        o:
+        - mapping: TriplesMap13
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad_doctorado)]
+             - [str2, $(URI_universidad_doctorado)]
+             
+ TriplesMapContrato_b5:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:contrato/$(id_empleado_b5)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b5), xsd:string]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+
+      - p: rrhhdef:personalInvestigador
+        o:
+         - mapping: TriplesMapEmpleado_b5
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b5)]
+              - [str2, $(id_empleado_b5)]
+             
+ TriplesMapEmpleado_b6:
+    sources: 
+      - [uam-PI.csv~csv]
+    s: univ:personal-investigador/$(id_empleado_b6)
+    po:
+      - [rdf:type, rrhhdef:PersonalInvestigador]
+      - [rrhhdef:idPersona, $(id_empleado_b6), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+      - p: rrhhdef:adscrito
+        o:
+        - mapping: TriplesMap8
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_unidad_responsable)]
+             - [str2, $(cod_unidad_responsable)]
+             
+ TriplesMapContrato_b6:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:contrato/$(id_empleado_b6)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b6), xsd:string]
+      - [rrhhdef:anioResolucionContrato, $(anio_resolucion_convocatoria), xsd:gYear]
+      - [rrhhdef:anioIncorporacionPI, $(anio_incorporacion), xsd:gYear]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+
+      - p: rrhhdef:personalInvestigador
+        o:
+         - mapping: TriplesMapEmpleado_b6
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b6)]
+              - [str2, $(id_empleado_b6)]
+             
+ TriplesMapEmpleado_b7:
+    sources: 
+      - [uam-PI.csv~csv]
+    s: univ:personal-investigador/$(id_empleado_b7)
+    po:
+      - [rdf:type, rrhhdef:PersonalInvestigador]
+      - [rrhhdef:idPersona, $(id_empleado_b7), xsd:string]
+      - [rrhhdef:genero, $(des_genero), xsd:string]
+      - [rrhhdef:area, $(des_area), xsd:string]
+      - p: rrhhdef:trabaja
+        o:
+        - mapping: TriplesMap1
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(URI_universidad)]
+             - [str2, $(URI_universidad)]
+      - p: rrhhdef:adscrito
+        o:
+        - mapping: TriplesMap8
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_unidad_responsable)]
+             - [str2, $(cod_unidad_responsable)]
+
+             
+ TriplesMapContrato_b7:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:contrato/$(id_empleado_b7)
+    po:
+      - [rdf:type, rrhhdef:Contrato]
+      - [rrhhdef:idContrato, $(id_empleado_b7), xsd:string]
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+
+      - p: rrhhdef:personalInvestigador
+        o:
+         - mapping: TriplesMapEmpleado_b7
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b7)]
+              - [str2, $(id_empleado_b7)]
+ TriplesMap8:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:unidad-universitaria/$(cod_unidad_responsable)
+    po:
+      - [rdf:type, rrhhdef:UnidadUniversitaria]
+      - [orgdef:codigoSIIU, $(cod_unidad_responsable), xsd:string]
+      - [orgdef:nombre,$(des_unidad_responsable),xsd:string]  
+      - [orgdef:tipoUnidad, $(des_tipo_unidad_responsable),xsd:string]
+      
+      - p: orgdef:universidad
+        o:
+         - mapping: TriplesMap1
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_universidad)]
+              - [str2, $(URI_universidad)]
+      
+ TriplesMap10:
+    sources:
+      - [uam-PI.csv~csv]
+    s: $(URI_pais_doctorado)
+    po:
+      - [rdf:type, esadm:Pais]
+      - [orgdef:codigoONU, $(cod_pais_doctorado), xsd:string]
+      - [orgdef:nombre,$(des_pais_doctorado),xsd:string]
+      - [geo:lat,$(lat_pais_doctorado),xsd:float]
+      - [geo:long,$(lon_pais_doctorado),xsd:float]
+      - [owl:sameAs, $(wikidata_pais_doctorado)~iri]
+   
+      - p: rrhhdef:agregacionPaises
+        o: 
+        - mapping: TriplesMap12
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_agregacion_paises_doctorado)]
+              - [str2, $(URI_agregacion_paises_doctorado)]
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMap11
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_doctorado)]
+              - [str2, $(URI_continente_doctorado)]
+
+ TriplesMap11:
+    sources:
+      - [uam-PI.csv~csv]
+    s: $(URI_continente_doctorado)
+    po:
+      - [rdf:type, rrhhdef:Continente]
+      - [orgdef:codigoONU, $(cod_continente_doctorado), xsd:string]
+      - [orgdef:nombre,$(des_continente_doctorado),xsd:string]
+      - [owl:sameAs, $(wikidata_continente_doctorado)~iri]
+ 
+ TriplesMap12:
+    sources:
+      - [uam-PI.csv~csv]
+    s: $(URI_agregacion_paises_doctorado)
+    po:
+      - [rdf:type, rrhhdef:AgregacionPaises]
+      - [orgdef:codigoONU, $(cod_agregacion_paises_doctorado), xsd:string]
+      - [orgdef:nombre,$(des_agregacion_paises_doctorado),xsd:string]
+      - [owl:sameAs, $(wikidata_agregacion_paises_doctorado)~iri]  
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMap11
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_doctorado)]
+              - [str2, $(URI_continente_doctorado)]
+ TriplesMap13:
+    sources:
+      - [uam-PI.csv~csv]
+    s: $(URI_universidad_doctorado)
+    po:
+      - [rdf:type, orgdef:Universidad]
+      - [orgdef:codigoSIIU, $(cod_universidad_doctorado), xsd:string]
+      - [orgdef:nombre, $(des_universidad_doctorado), xsd:string]
+      - [owl:sameAs, $(wikidata_universidad_doctorado)~iri]
+      - p: rrhhdef:pais
+        o:
+        - mapping: TriplesMap10
+          condition:
+           function: equal
+           parameters:
+             - [str1, $(cod_pais_doctorado)]
+             - [str2, $(cod_pais_doctorado)]
+             
+      - p: rrhhdef:agregacionPaises
+        o: 
+        - mapping: TriplesMap12
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_agregacion_paises_doctorado)]
+              - [str2, $(URI_agregacion_paises_doctorado)]
+              
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMap11
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_doctorado)]
+              - [str2, $(URI_continente_doctorado)]
+              
+ TriplesMap17:
+    sources:
+      - [uam-PI.csv~csv]
+    s: $(URI_pais_nacionalidad)
+    po:
+      - [rdf:type, esadm:Pais]
+      - [orgdef:codigoONU, $(cod_pais_nacionalidad), xsd:string]
+      - [orgdef:nombre,$(des_pais_nacionalidad),xsd:string]
+      - [geo:lat,$(lat_pais_nacionalidad),xsd:float]
+      - [geo:long,$(lon_pais_nacionalidad),xsd:float]
+      - [owl:sameAs, $(wikidata_pais_nacionalidad)~iri]
+      
+      - p: rrhhdef:agregacionPaises
+        o: 
+        - mapping: TriplesMap19
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_agregacion_paises_nacionalidad)]
+              - [str2, $(URI_agregacion_paises_nacionalidad)]
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMap18
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_nacionalidad)]
+              - [str2, $(URI_continente_nacionalidad)]   
+
+ TriplesMap18:
+    sources:
+      - [uam-PI.csv~csv]
+    s: $(URI_continente_nacionalidad)
+    po:
+      - [rdf:type, rrhhdef:Continente]
+      - [orgdef:codigoONU, $(cod_continente_nacionalidad), xsd:string]
+      - [orgdef:nombre,$(des_continente_nacionalidad),xsd:string]
+      - [owl:sameAs, $(wikidata_continente_nacionalidad)~iri]
+
+ TriplesMap19:
+    sources:
+      - [uam-PI.csv~csv]
+    s: $(URI_agregacion_paises_nacionalidad)
+    po:
+      - [rdf:type, rrhhdef:AgregacionPaises]
+      - [orgdef:codigoONU, $(cod_agregacion_paises_nacionalidad), xsd:string]
+      - [orgdef:nombre,$(des_agregacion_paises_nacionalidad),xsd:string]
+      - [owl:sameAs, $(wikidata_agregacion_paises_nacionalidad)~iri] 
+      - p: rrhhdef:continente
+        o: 
+        - mapping: TriplesMap18
+          condition:
+            function: equal
+            parameters:
+              - [str1, $(URI_continente_nacionalidad)]
+              - [str2, $(URI_continente_nacionalidad)]      
+ TriplesMap22:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:muestra-pi/$(id_empleado_b2)
+    po:
+       - [rdf:type, rrhhdef:MuestraPi]
+       - [orgdef:codigoMuestra, $(id_empleado_b2), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalInvestigador
+         o:
+         - mapping: TriplesMapEmpleado_b2
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b2)]
+              - [str2, $(id_empleado_b2)]
+              
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b2
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b2)]
+               - [str1, $(id_empleado_b2)]
+ TriplesMap23:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:muestra-pi/$(id_empleado_b3)
+    po:
+       - [rdf:type, rrhhdef:MuestraPi]
+       - [orgdef:codigoMuestra, $(id_empleado_b3), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalInvestigador
+         o:
+         - mapping: TriplesMapEmpleado_b3
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b3)]
+              - [str2, $(id_empleado_b3)]
+
+ TriplesMap24:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:muestra-pi/$(id_empleado_b4)
+    po:
+       - [rdf:type, rrhhdef:MuestraPi]
+       - [orgdef:codigoMuestra, $(id_empleado_b4), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalInvestigador
+         o:
+         - mapping: TriplesMapEmpleado_b4
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b4)]
+              - [str2, $(id_empleado_b4)]
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b4
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b4)]
+               - [str1, $(id_empleado_b4)]
+              
+ TriplesMap25:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:muestra-pi/$(id_empleado_b5)
+    po:
+       - [rdf:type, rrhhdef:MuestraPi]
+       - [orgdef:codigoMuestra, $(id_empleado_b5), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalInvestigador
+         o:
+         - mapping: TriplesMapEmpleado_b5
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b5)]
+              - [str2, $(id_empleado_b5)]
+              
+       - p: rrhhdef:contrato
+         o: 
+         - mapping: TriplesMapContrato_b2
+           condition:
+             function: equal
+             parameters:
+               - [str1, $(id_empleado_b2)]
+               - [str1, $(id_empleado_b2)]
+
+ TriplesMap26:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:muestra-pi/$(id_empleado_b6)
+    po:
+       - [rdf:type, rrhhdef:MuestraPi]
+       - [orgdef:codigoMuestra, $(id_empleado_b6), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalInvestigador
+         o:
+         - mapping: TriplesMapEmpleado_b6
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b6)]
+              - [str2, $(id_empleado_b6)]
+ TriplesMap27:
+    sources:
+      - [uam-PI.csv~csv]
+    s: univ:muestra-pi/$(id_empleado_b7)
+    po:
+       - [rdf:type, rrhhdef:MuestraPi]
+       - [orgdef:codigoMuestra, $(id_empleado_b7), xsd:string]
+       - [orgdef:anioLaboral,$(anio),xsd:gYear]
+       - p: rrhhdef:personalInvestigador
+         o:
+         - mapping: TriplesMapEmpleado_b7
+           condition:
+            function: equal
+            parameters:
+              - [str1, $(id_empleado_b7)]
+              - [str2, $(id_empleado_b7)]
+             
+ 
